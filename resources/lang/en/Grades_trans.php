@@ -1,0 +1,25 @@
+<?php
+
+return [
+  'Close' => 'Close',
+  'Delete' => 'Delete',
+  'Edit' => 'Edit',
+  'List_Grade' => 'List_Grade',
+  'Name' => 'Name',
+  'Notes' => 'Notes',
+  'Processes' => 'Processes',
+  'Warning_Grade' => 'Are Sure Of The Deleting Process ?',
+  'add_Grade' => 'Add Grade',
+  'delete_Grade' => 'delete_Grade',
+  'delete_Grade_Error' => 'The Grade cannot be deleted because there are classes attached to it',
+  'edit_Grade' => 'edit_Grade',
+  'exists' => 'This field already exists',
+  'grade_name' => 'Grade Name Is Required',
+  'grade_name_en' => 'Grade English Name Is Required',
+  'stage_name_ar' => 'stage_name_ar',
+  'stage_name_en' => 'stage_name_en',
+  'submit' => 'submit',
+  'title_page' => 'Grades',
+  'grade_name_en_exist' => 'grade_name_en is already exist',
+  'notes_required' => 'the notes field is required',
+];
