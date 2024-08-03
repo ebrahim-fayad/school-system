@@ -36,7 +36,8 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label for="title">{{ trans('Teacher_trans.Email') }}</label>
-                                    <input type="email" name="Email" class="form-control" value="{{ old('Email') }}">
+                                    <input type="email" name="Email" class="form-control"
+                                        value="{{ old('Email') }}">
                                     @error('Email')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -55,14 +56,16 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label for="title">{{ trans('Teacher_trans.Name_ar') }}</label>
-                                    <input type="text" name="Name_ar" class="form-control" value="{{ old('Name_ar') }}">
+                                    <input type="text" name="Name_ar" class="form-control"
+                                        value="{{ old('Name_ar') }}">
                                     @error('Name_ar')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="col">
                                     <label for="title">{{ trans('Teacher_trans.Name_en') }}</label>
-                                    <input type="text" name="Name_en" class="form-control" value="{{ old('Name_en') }}">
+                                    <input type="text" name="Name_en" class="form-control"
+                                        value="{{ old('Name_en') }}">
                                     @error('Name_en')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -103,7 +106,8 @@
                                     <label for="title">{{ trans('Teacher_trans.Joining_Date') }}</label>
                                     <div class='input-group date'>
                                         <input class="form-control" type="text" id="datepicker-action"
-                                            name="Joining_Date" data-date-format="yyyy-mm-dd" required value="{{ old('Joining_Date') }}">
+                                            name="Joining_Date" data-date-format="yyyy-mm-dd" required
+                                            value="{{ old('Joining_Date') }}">
                                     </div>
                                     @error('Joining_Date')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -114,7 +118,11 @@
                                     <div class='input-group date'>
                                         <select class="form-select form-control" name="sections[]" multiple>
                                             @foreach ($sections as $section)
-                                            <option value="{{ $section->id }}">{{ $section->Name_Section }}=== {{ trans('My_Classes_trans.Name_class') }}-> {{ $section->Classroom->Name_Class }}  === {{ trans('Grades_trans.Name') }}-> {{ $section->Grade->name }} </option>
+                                                <option value="{{ $section->id }}">{{ $section->Name_Section }}===
+                                                    {{ trans('My_Classes_trans.Name_class') }}->
+                                                    {{ $section->Classroom->Name_Class }} ===
+                                                    {{ trans('Grades_trans.Name') }}-> {{ $section->Grade->name }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -124,25 +132,26 @@
 
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">{{ trans('Teacher_trans.Address') }}</label>
-                                <textarea class="form-control" name="Address" value="{{ old('Address') }}" id="exampleFormControlTextarea1" rows="4"></textarea>
+                                <textarea class="form-control" name="Address" value="{{ old('Address') }}" id="exampleFormControlTextarea1"
+                                    rows="4"></textarea>
                                 @error('Address')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <br>
-                             <div class="row row-xs align-items-center mg-b-20">
-                            <div class="col-md-1">
-                                <label for="exampleInputEmail1">
-                                    {{ trans('Teacher_trans.teacher_image') }}</label>
+                            <div class="row row-xs align-items-center mg-b-20">
+                                <div class="col-md-1">
+                                    <label for="exampleInputEmail1">
+                                        {{ trans('Teacher_trans.teacher_image') }}</label>
+                                </div>
+                                <div class="col-md-11 mg-t-5 mg-md-t-0">
+                                    <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
+                                    <img style="border-radius:50%" width="150px" height="150px" id="output" />
+                                </div>
                             </div>
-                            <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
-                                <img style="border-radius:50%" width="150px" height="150px" id="output" />
-                            </div>
-                        </div>
 
                             <button class="btn btn-success btn-sm nextBtn btn-lg pull-right"
-                                type="submit">{{ trans('Parent_trans.Next') }}</button>
+                                type="submit">{{ trans('Students_trans.submit') }}</button>
                         </form>
                     </div>
                 </div>

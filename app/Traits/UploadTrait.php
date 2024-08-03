@@ -29,14 +29,12 @@ trait UploadTrait{
     }//end of uploadImage
     public function deleteImage($disk, $id, $type)
     {
-
-            # code...
             $images = Image::where('imageable_id', $id)->where('imageable_type', $type)->get();
             foreach ($images as $image) {
                 Storage::disk($disk)->delete($image->fileName);
                 $image->delete();
-            
         }
     }
+
 }
 

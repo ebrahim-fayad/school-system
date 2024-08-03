@@ -34,6 +34,7 @@
     } );
 </script>
 
+{{-- <script src="{{ asset('assets/dropzonejs/min/dropzone.min.js') }}"></script> --}}
 
 
 @if (App::getLocale() == 'en')
