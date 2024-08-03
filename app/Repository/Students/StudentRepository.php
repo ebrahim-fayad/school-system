@@ -52,7 +52,6 @@ class StudentRepository implements StudentRepositoryInterface
                 $path = $file->storeAs("studentsAttachments/$name", $filename, 'upload_image');
                 $folder = $path;
             }
-
            Student::create([
                 'name' => [
                     'ar' => $request->name_ar,
@@ -115,12 +114,9 @@ class StudentRepository implements StudentRepositoryInterface
         DB::beginTransaction();
         try {
             $student = Student::findOrFail($id);
-            $relativePath = str_replace('https://schools.com/attachments/', '', $student->profilePhoto);
-            // dd($relativePath);
-            // dd($student->profilePhoto);
             if ($request->hasFile('photo')) {
-                if (Storage::disk('upload_image')->exists("$relativePath")) {
-                    Storage::disk('upload_image')->delete("$relativePath");
+                if (Storage::disk('upload_image')->exists("$student->profilePhoto")) {
+                    Storage::disk('upload_image')->delete("$student->profilePhoto");
                 }
                 $name = Str::slug($request->name_en);
                 $file = $request->photo;

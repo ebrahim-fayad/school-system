@@ -62,20 +62,24 @@
                     </div>
                 @endif
 
-                <form action="{{ route('admin.students.update', $Student->id) }}" method="post" enctype="multipart/form-data" autocomplete="off">
+                <form action="{{ route('admin.students.update', $Student->id) }}" method="post"
+                    enctype="multipart/form-data" autocomplete="off">
                     @method('PUT')
                     @csrf
                     <h6 style="font-family: 'Cairo', sans-serif;color: blue">
                         {{ trans('Students_trans.personal_information') }}</h6><br>
-                         <div class="pd-30 pd-sm-40 bg-gray-200">
-                                <div>
+                    <div class="pd-30 pd-sm-40 bg-gray-200">
+                        <div>
+                            @if ($Student->profilePhoto)
+                                <img style="border-radius:20%" src="{{asset('attachments/'.$Student->profilePhoto )}}"height="150px"
+                                    width="150px" alt="">
+                            @else
+                                <img style="border-radius:20%" src="{{ asset('assets/images/student.png') }}"
+                                    height="100" width="100" alt="">
+                            @endif
 
-                                        <img style="border-radius:20%"
-                                            src="{{ $Student->profilePhoto }}"height="150px"
-                                            width="150px" alt="">
-
-                                </div>
-                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -250,7 +254,7 @@
                             <img style="border-radius:50%" width="150px" height="150px" id="output" />
                         </div>
                         @error('photo')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <br>
@@ -373,13 +377,13 @@
 
         var element = document.getElementById('product_images');
         var id = element.getAttribute('data-image');
-          if (id) {
-                var url = "{{ route('admin.get-product-images', ['id' => '0']) }}";
-                url = url.replace('/0', '/' + id);
-            }
-        $.get(url,{}, function(response){
-           $('div#product_images').html(response.data);
-        },'json');
+        if (id) {
+            var url = "{{ route('admin.get-product-images', ['id' => '0']) }}";
+            url = url.replace('/0', '/' + id);
+        }
+        $.get(url, {}, function(response) {
+            $('div#product_images').html(response.data);
+        }, 'json');
 
     }
     $(document).on('click', '#deleteStudentAttachment', function(e) {
@@ -397,7 +401,7 @@
                 _token: _token
             },
             success: function(data) {
-                   getProductImages();
+                getProductImages();
 
             }
         });

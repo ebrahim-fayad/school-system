@@ -45,7 +45,12 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{$student->name}}</td>
                                             <td>
-                                                <img src="{{ $student->profilePhoto }}" height="100" width="100" alt="">
+                                                @if ($student->profilePhoto)
+                                                <img src="{{asset('attachments/'.$student->profilePhoto) }}" height="100" width="100" alt="">
+                                                @else
+                                                <img src="{{asset('assets/images/student.png') }}" height="100" width="100" alt="">
+
+                                                @endif
                                             </td>
                                             <td>{{$student->email}}</td>
                                             <td>{{$student->gender->Name}}</td>

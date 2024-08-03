@@ -40,8 +40,8 @@ class Student extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
-    public function getProfilePhotoAttribute($value)
-    {
-        return $value? asset("attachments/$value") : asset('attachments/studentsAttachments/default.png');
-    }
+    // public function getProfilePhotoAttribute($value)
+    // {
+    //     return $value ?? 'studentsAttachments/default.png';
+    // }
 }
