@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Classrooms\ClassroomController;
 use App\Http\Controllers\Admin\Grade\GradeController;
 use App\Http\Controllers\Admin\Parents\ParentController;
 use App\Http\Controllers\Admin\Sections\SectionController;
+use App\Http\Controllers\Admin\Students\PromotionController;
 use App\Http\Controllers\Admin\Students\StudentController;
 use App\Http\Controllers\Admin\Teachers\TeacherController;
 use App\Http\Controllers\ProfileController;
@@ -45,7 +46,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     #=======================   Students Routes   =========================================
     Route::resource('students', StudentController::class);
     Route::controller(StudentController::class)->group(function () {
-
         Route::get('/student_sections/{id}',  'getSections')->name('getSections');
         Route::post('/upload-images/{id}', 'uploadStudentAttachment')->name('upload-images');
         Route::get('/get-product-images/{id}', 'getProductImages' )->name('get-product-images');
@@ -54,6 +54,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/showAttachments/{id}',  'showAttachments')->name('showAttachments');
         Route::get('/deleteAttachments/{id}',  'deleteAttachments')->name('deleteAttachments');
     });
+    #=======================   Students Promotion Routes   =========================================
+    Route::resource('promotion', PromotionController::class);
 });
 Livewire::setUpdateRoute(function ($handle) {
     return Route::post('/livewire/update', $handle);
