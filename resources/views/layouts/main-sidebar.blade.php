@@ -77,7 +77,7 @@
                                 <a href="javascript:void(0);" data-toggle="collapse" data-target="#Students_upgrade">{{trans('main_trans.Students_Promotions')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
                                 <ul id="Students_upgrade" class="collapse">
                                     <li> <a href="{{route('admin.promotion.index')}}">{{trans('main_trans.add_Promotion')}}</a></li>
-                                    <li> <a href="{{route('admin.promotion.create')}}">{{trans('main_trans.list_Promotions')}}</a> </li>
+                                    <li> <a href="{{route('admin.promotion.show','promotions')}}">{{trans('main_trans.list_Promotions')}}</a> </li>
                                 </ul>
                             </li>
 

@@ -17,26 +17,26 @@ class Promotion extends Model
     }
     public function f_grade()
     {
-        return $this->belongsTo(Grade::class);
+        return $this->belongsTo(Grade::class,'from_grade');
     }
     public function t_grade()
     {
-        return $this->belongsTo(Grade::class);
+        return $this->belongsTo(Grade::class,'to_grade');
     }
     public function f_classroom()
     {
-        return $this->belongsTo(Classroom::class);
+        return $this->belongsTo(Classroom::class,'from_Classroom');
     }
     public function t_classroom()
     {
-        return $this->belongsTo(Classroom::class);
+        return $this->belongsTo(Classroom::class,'to_Classroom');
     }
     public function f_section()
     {
-        return $this->belongsTo(Section::class);
+        return $this->belongsTo(Section::class,'from_section');
     }
     public function t_section()
     {
-        return $this->belongsTo(Section::class);
+        return $this->belongsTo(Section::class,'to_section');
     }
 }
