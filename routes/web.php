@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Classrooms\ClassroomController;
 use App\Http\Controllers\Admin\Grade\GradeController;
 use App\Http\Controllers\Admin\Parents\ParentController;
 use App\Http\Controllers\Admin\Sections\SectionController;
+use App\Http\Controllers\Admin\Students\GraduationController;
 use App\Http\Controllers\Admin\Students\PromotionController;
 use App\Http\Controllers\Admin\Students\StudentController;
 use App\Http\Controllers\Admin\Teachers\TeacherController;
@@ -56,6 +57,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
     #=======================   Students Promotion Routes   =========================================
     Route::resource('promotion', PromotionController::class);
+    #=======================   Students Promotion Routes   =========================================
+    Route::resource('graduation', GraduationController::class);
 });
 Livewire::setUpdateRoute(function ($handle) {
     return Route::post('/livewire/update', $handle);

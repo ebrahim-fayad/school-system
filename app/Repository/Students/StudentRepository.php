@@ -161,7 +161,7 @@ class StudentRepository implements StudentRepositoryInterface
         if (Storage::disk('upload_image')->exists("studentsAttachments/$folderName")){
             Storage::disk('upload_image')->deleteDirectory("studentsAttachments/$folderName");
         }
-        Student::destroy($id);
+        Student::findOrFail($id)->forceDelete();
         toastr()->error(trans('messages.Delete'));
         return redirect()->route('admin.students.index');
     }
