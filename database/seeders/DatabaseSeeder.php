@@ -4,13 +4,19 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Classroom;
 use App\Models\Gender;
+use App\Models\Grade;
+use App\Models\MyParent;
 use App\Models\Nationality;
 use App\Models\Religion;
+use App\Models\Section;
 use App\Models\Specialization;
+use App\Models\Student;
 use App\Models\TypeBlood;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Class_;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,7 +32,12 @@ class DatabaseSeeder extends Seeder
         Religion::truncate();
         Nationality::truncate();
         Gender::truncate();
+        Grade::truncate();
+        Classroom::truncate();
         Specialization::truncate();
+        Section::truncate();
+        MyParent::truncate();
+        Student::truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
         $this->call([
             TypeBloodSeeder::class,
@@ -34,6 +45,11 @@ class DatabaseSeeder extends Seeder
             ReligionSeeder::class,
             GenderSeeder::class,
             SpecializationSeeder::class,
+            GradeSeeder::class,
+            ClassroomSeeder::class,
+            SectionSeeder::class,
+            ParentsSeeder::class,
+            StudentSeeder::class,
         ]);
     }
 }
