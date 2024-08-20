@@ -25,8 +25,8 @@ class FeesRequest extends FormRequest
             'title_ar' => 'required',
             'title_en' => 'required',
             'amount' => 'required|numeric',
-            'Grade_id' => 'required|integer',
-            'Classroom_id' => ['required','integer'],
+            'Grade_id' => 'required|integer|exists:grades,id',
+            'Classroom_id' => ['required','integer','exists:classrooms,id'],
             'year' => 'required',
         ];
     }

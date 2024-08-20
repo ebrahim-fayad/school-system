@@ -41,8 +41,9 @@ class Student extends Model
     {
         return $this->morphMany(Image::class, 'imageable');
     }
-    // public function getProfilePhotoAttribute($value)
-    // {
-    //     return $value ?? 'studentsAttachments/default.png';
-    // }
+
+    public function student_account()
+    {
+        return $this->hasMany(StudentAccount::class,'student_id');
+    }
 }
