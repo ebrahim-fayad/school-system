@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Fees\FeeController;
 use App\Http\Controllers\Admin\Fees\FeesInvoicesController;
 use App\Http\Controllers\Admin\Grade\GradeController;
 use App\Http\Controllers\Admin\Parents\ParentController;
+use App\Http\Controllers\Admin\Payments\PaymentStudentController;
 use App\Http\Controllers\Admin\ProcessingFees\ProcessingFeeController;
 use App\Http\Controllers\Admin\Receipts\ReceiptStudentController;
 use App\Http\Controllers\Admin\Sections\SectionController;
@@ -69,6 +70,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('Receipts', ReceiptStudentController::class);
     #=======================   ProcessingFee Routes   =========================================
     Route::resource('ProcessingFee', ProcessingFeeController::class);
+    #=======================   PaymentStudents Routes   =========================================
+    Route::resource('Payment_students', PaymentStudentController::class);
 });
 Livewire::setUpdateRoute(function ($handle) {
     return Route::post('/livewire/update', $handle);

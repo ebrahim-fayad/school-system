@@ -139,6 +139,7 @@
                             <li> <a href="{{route('admin.FeesInvoices.index')}}">الفواتير</a> </li>
                             <li> <a href="{{route('admin.Receipts.index')}}">سندات القبض</a> </li>
                              <li> <a href="{{route('admin.ProcessingFee.index')}}">استبعاد رسوم</a> </li>
+                               <li> <a href="{{route('admin.Payment_students.index')}}">سندت الصرف</a> </li>
                         </ul>
                     </li>
 
