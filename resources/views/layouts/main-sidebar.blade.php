@@ -137,6 +137,7 @@
                         <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{route('admin.Fees.index')}}">الرسوم الدراسية</a> </li>
                             <li> <a href="{{route('admin.FeesInvoices.index')}}">الفواتير</a> </li>
+                            <li> <a href="{{route('admin.Receipts.index')}}">سندات القبض</a> </li>
                         </ul>
                     </li>
 
