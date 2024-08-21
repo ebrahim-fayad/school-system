@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Interface\Attendance\AttendanceRepositoryInterface;
 use App\Interface\Fees\FeesInvoicesRepositoryInterface;
 use App\Interface\Fees\FeesRepositoryInterface;
 use App\Interface\PaymentStudents\PaymentStudentRepositoryInterface;
@@ -11,6 +12,7 @@ use App\Interface\Students\StudentGraduationRepositoryInterface;
 use App\Interface\Students\StudentPromotionRepositoryInterface;
 use App\Interface\Students\StudentRepositoryInterface;
 use App\Interface\Teachers\TeacherRepositoryInterface;
+use App\Repository\Attendance\AttendanceRepository;
 use App\Repository\Fees\FeesInvoicesRepository;
 use App\Repository\Fees\FeesRepository;
 use App\Repository\PaymentStudents\PaymentStudentRepository;
@@ -38,6 +40,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(ReceiptStudentRepositoryInterface::class, ReceiptStudentRepository::class);
         $this->app->bind(ProcessingFeesRepositoryInterface::class, ProcessingFeesRepository::class);
         $this->app->bind(PaymentStudentRepositoryInterface::class, PaymentStudentRepository::class);
+        $this->app->bind(AttendanceRepositoryInterface::class, AttendanceRepository::class);
     }
 
     /**
