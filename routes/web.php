@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\Students\AttendanceController;
 use App\Http\Controllers\Admin\Students\GraduationController;
 use App\Http\Controllers\Admin\Students\PromotionController;
 use App\Http\Controllers\Admin\Students\StudentController;
+use App\Http\Controllers\Admin\Subjects\SubjectController;
 use App\Http\Controllers\Admin\Teachers\TeacherController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
@@ -75,6 +76,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('Payment_students', PaymentStudentController::class);
     #=======================   Attendance Routes   =========================================
     Route::resource('Attendance', AttendanceController::class);
+    #=======================   Subjects Routes   =========================================
+    Route::resource('subjects', SubjectController::class);
 });
 Livewire::setUpdateRoute(function ($handle) {
     return Route::post('/livewire/update', $handle);
