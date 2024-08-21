@@ -59,26 +59,8 @@ class AttendanceRepository implements AttendanceRepositoryInterface
    */
   public function destroy($id) {
   }
-
-  /**
-   * @inheritDoc
-   */
-  public function edit($id) {
-  }
-
-  /**
-   * @inheritDoc
-   */
-
-
-  /**
-   * @inheritDoc
-   */
-
-
-  /**
-   * @inheritDoc
-   */
   public function update($request, $id) {
   }
+    public function edit($id) {
+    }
 }
