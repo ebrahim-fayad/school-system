@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Classrooms\ClassroomController;
+use App\Http\Controllers\Admin\Exams\ExamController;
 use App\Http\Controllers\Admin\Fees\FeeController;
 use App\Http\Controllers\Admin\Fees\FeesInvoicesController;
 use App\Http\Controllers\Admin\Grade\GradeController;
@@ -78,6 +79,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('Attendance', AttendanceController::class);
     #=======================   Subjects Routes   =========================================
     Route::resource('subjects', SubjectController::class);
+    #=======================   Exams Routes   =========================================
+    Route::resource('Exams', ExamController::class);
 });
 Livewire::setUpdateRoute(function ($handle) {
     return Route::post('/livewire/update', $handle);
