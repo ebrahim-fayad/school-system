@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\Students\PromotionController;
 use App\Http\Controllers\Admin\Students\StudentController;
 use App\Http\Controllers\Admin\Subjects\SubjectController;
 use App\Http\Controllers\Admin\Teachers\TeacherController;
+use App\Http\Controllers\Teachers\Quizzes\QuizController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 
@@ -81,6 +82,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('subjects', SubjectController::class);
     #=======================   Exams Routes   =========================================
     Route::resource('Exams', ExamController::class);
+    #=======================   quizzes Routes   =========================================
+    Route::resource('quizzes', QuizController::class);
 });
 Livewire::setUpdateRoute(function ($handle) {
     return Route::post('/livewire/update', $handle);

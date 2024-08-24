@@ -48,3 +48,66 @@
 
 
 
+<script>
+    $(document).ready(function() {
+        $('select[name="Grade_id"]').on('change', function() {
+            var Grade_id = $(this).val();
+            if (Grade_id) {
+                var url = "{{ route('admin.getClasses', ['id' => '0']) }}";
+                url = url.replace('/0', '/' + Grade_id);
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="section_id"]').empty();
+                        $('select[name="Classroom_id"]').empty();
+                        $('select[name="Classroom_id"]').append(
+                            '<option selected disabled >{{ trans('Parent_trans.Choose') }}...</option>'
+                        );
+                        $.each(data, function(key, value) {
+                            $('select[name="Classroom_id"]').append(
+                                '<option value="' + key + '">' + value +
+                                '</option>');
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('AJAX error:', error);
+                    }
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('select[name="Classroom_id"]').on('change', function() {
+            var Classroom_id = $(this).val();
+            if (Classroom_id) {
+                var url = "{{ route('admin.getSections', ['id' => '0']) }}";
+                url = url.replace('/0', '/' + Classroom_id);
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="section_id"]').empty();
+                        $('select[name="section_id"]').append(
+                            '<option selected disabled >{{ trans('Parent_trans.Choose') }}...</option>'
+                        );
+                        $.each(data, function(key, value) {
+                            $('select[name="section_id"]').append(
+                                '<option value="' + key + '">' + value +
+                                '</option>');
+                        });
+
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
