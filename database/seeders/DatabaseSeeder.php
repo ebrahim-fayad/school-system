@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        // \App\Models\User::factory(1)->create();
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         Nationality::truncate();
         TypeBlood::truncate();

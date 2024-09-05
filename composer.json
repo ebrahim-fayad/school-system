@@ -13,6 +13,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.5",
+        "macsidigital/laravel-zoom": "^8.0",
         "mcamara/laravel-localization": "^2.0",
         "spatie/laravel-translatable": "^6.8",
         "yoeunes/toastr": "^2.3"
