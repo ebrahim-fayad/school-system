@@ -21,7 +21,9 @@
                         <div class="card card-statistics h-100">
                             <div class="card-body">
                                 <a href="{{route('teacher.onlineClasses.create')}}" class="btn btn-success btn-sm" role="button"
-                                   aria-pressed="true">اضافة حصة جديدة</a><br><br>
+                                   aria-pressed="true">اضافة حصة جديدة</a>
+                                      <a class="btn btn-warning" href="{{route('teacher.onlineClasses.edit','onlineClass')}}">اضافة حصة اوفلاين جديدة</a>
+                                   <br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"

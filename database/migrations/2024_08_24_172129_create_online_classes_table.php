@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('online_classes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('Grade_id')->references('id')->on('Grades')->onDelete('cascade');
-            $table->foreignId('Classroom_id')->references('id')->on('Classrooms')->onDelete('cascade');
-            $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
-            $table->foreignId('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+            $table->foreignId('Grade_id')->references('id')->on('Grades')->cascadeOnDelete();
+            $table->foreignId('Classroom_id')->references('id')->on('Classrooms')->cascadeOnDelete();
+            $table->foreignId('section_id')->references('id')->on('sections')->cascadeOnDelete();
+            $table->foreignId('teacher_id')->references('id')->on('teachers')->cascadeOnDelete();
+            $table->boolean('integration');
             $table->string('meeting_id');
             $table->string('topic');
             $table->dateTime('start_at');

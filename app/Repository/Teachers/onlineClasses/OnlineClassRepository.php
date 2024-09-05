@@ -24,9 +24,13 @@ class OnlineClassRepository implements OnlineClassRepositoryInterface
     public function destroy($id) {
         try {
             $onlineClass= OnlineClass::findOrFail($id);
+            if ($onlineClass->integration) {
             $meeting=Zoom::meeting()->find($onlineClass->meeting_id);
             $meeting->delete();
             $onlineClass->delete();
+        } else {
+                $onlineClass->delete();
+            }
             toastr()->success(trans('messages.success'));
             return redirect()->back();
         } catch (\Exception $e) {
@@ -38,6 +42,8 @@ class OnlineClassRepository implements OnlineClassRepositoryInterface
      * @inheritDoc
      */
     public function edit($id) {
+        $Grades = Grade::all();
+        return view('Teachers.onlineClasses.create-indirect-meeting', compact('Grades'));
     }
 
     /**
@@ -56,10 +62,11 @@ class OnlineClassRepository implements OnlineClassRepositoryInterface
 
             $meeting = $this->createMeeting($request);
             OnlineClass::create([
+                'integration'=>true,
                 'Grade_id' => $request->Grade_id,
                 'Classroom_id' => $request->Classroom_id,
                 'section_id' => $request->section_id,
-                'teacher_id' => 3,
+                'teacher_id' => 1,
                 'meeting_id' => $meeting->id,
                 'topic' => $request->topic,
                 'start_at' => $request->start_time,
@@ -79,5 +86,25 @@ class OnlineClassRepository implements OnlineClassRepositoryInterface
      * @inheritDoc
      */
     public function update($request, $id) {
+        try {
+            OnlineClass::create([
+                'integration' => false,
+                'Grade_id' => $request->Grade_id,
+                'Classroom_id' => $request->Classroom_id,
+                'section_id' => $request->section_id,
+                'teacher_id' => 1,
+                'meeting_id' => $request->meeting_id,
+                'topic' => $request->topic,
+                'start_at' => $request->start_time,
+                'duration' => $request->duration,
+                'password' => $request->password,
+                'start_url' => $request->start_url,
+                'join_url' => $request->join_url,
+            ]);
+            toastr()->success(trans('messages.success'));
+            return redirect()->route('teacher.onlineClasses.index');
+        } catch (\Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
     }
 }
