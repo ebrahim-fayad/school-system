@@ -44,8 +44,8 @@ class TeacherRepository implements TeacherRepositoryInterface
                     'ar' => $request->Name_ar,
                     'en' => $request->Name_en
                 ],
-                'Email' => $request->Email,
-                'Password' => Hash::make($request->Password),
+                'email' => $request->Email,
+                'password' => Hash::make($request->Password),
                 'Specialization_id' => $request->Specialization_id,
                 'Gender_id' => $request->Gender_id,
                 'Joining_Date' => $request->Joining_Date,
@@ -87,8 +87,8 @@ class TeacherRepository implements TeacherRepositoryInterface
                     'ar' => $request->Name_ar,
                     'en' => $request->Name_en
                 ],
-                'Email' => $request->Email,
-                'Password' => Hash::make($request->Password),
+                'email' => $request->Email,
+                'password' => Hash::make($request->Password),
                 'Specialization_id' => $request->Specialization_id,
                 'Gender_id' => $request->Gender_id,
                 'Joining_Date' => $request->Joining_Date,

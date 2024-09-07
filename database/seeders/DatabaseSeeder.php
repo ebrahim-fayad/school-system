@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Admin;
 use App\Models\Classroom;
 use App\Models\Gender;
 use App\Models\Grade;
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(1)->create();
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        Admin::truncate();
         Nationality::truncate();
         TypeBlood::truncate();
         Religion::truncate();
@@ -40,6 +42,7 @@ class DatabaseSeeder extends Seeder
         Student::truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
         $this->call([
+            AdminSeeder::class,
             TypeBloodSeeder::class,
             NationalitySeeder::class,
             ReligionSeeder::class,

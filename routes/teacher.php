@@ -18,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::prefix('teacher')->name('teacher.')->group(function () {
+Route::prefix('teacher')->name('teacher.')->middleware('Teacher')->group(function () {
     Route::resource('onlineClasses', OnlineClassController::class);
 });

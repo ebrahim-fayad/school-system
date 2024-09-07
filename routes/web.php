@@ -31,13 +31,15 @@ use Livewire\Livewire;
 |
 */
 Route::get('/', function () {
-    return view('dashboard');
-})->name('admin.dashboard');
+    return view('loginPage');
+})->name('selection');
+
 
 Route::prefix('admin')->name('admin.')->group(function () {
-    // Route::get('/', function () {
-    //     return view('dashboard');
-    // })->name('dashboard');
+    Route::middleware('Admin')->group(function () {
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        })->name('dashboard');
     Route::resource('grades', GradeController::class);
     #=======================   Classrooms Routes   =========================================
     Route::resource('classrooms', ClassroomController::class);
@@ -84,8 +86,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('Exams', ExamController::class);
     #=======================   quizzes Routes   =========================================
     Route::resource('quizzes', QuizController::class);
+    });
 });
+require __DIR__.'/auth.php';
 Livewire::setUpdateRoute(function ($handle) {
     return Route::post('/livewire/update', $handle);
 });
-require __DIR__.'/auth.php';

@@ -105,7 +105,19 @@
                                 class="badge badge-info">6</span> </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a>
-                        <a class="dropdown-item" href="#"><i class="text-danger ti-unlock"></i>Logout</a>
+                        @if(auth('student')->check())
+                    <form method="post" action="{{ route('logout','student') }}">
+                        @elseif(auth('teacher')->check())
+                            <form method="post" action="{{ route('logout','teacher') }}">
+                                @elseif(auth('parent')->check())
+                                    <form method="post" action="{{ route('logout','parent') }}">
+                                        @else
+                                            <form method="post" action="{{ route('logout','admin') }}">
+                                                @endif
+
+                                                @csrf
+                                                <a class="dropdown-item" href="#" onclick="event.preventDefault();this.closest('form').submit();"><i class="bx bx-log-out"></i>تسجيل الخروج</a>
+                                            </form>
                     </div>
                 </li>
                 <li class="nav-item align-content-center dropdown mr-30">

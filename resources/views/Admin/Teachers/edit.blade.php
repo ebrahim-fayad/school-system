@@ -53,7 +53,7 @@
                                 <div class="col">
                                     <label for="title">{{ trans('Teacher_trans.Email') }}</label>
                                     <input type="email" name="Email" class="form-control"
-                                        value=" {{ $Teacher->Email }}">
+                                        value=" {{ $Teacher->email }}">
                                     @error('Email')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
